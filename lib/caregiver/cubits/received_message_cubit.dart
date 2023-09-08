@@ -3,7 +3,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:my_childrens_voice_app/caregiver/caregiver.dart';
 
 part 'received_message_state.dart';
-
 part 'received_message_cubit.freezed.dart';
 
 class ReceivedMessageCubit extends Cubit<ReceivedMessageState> {
