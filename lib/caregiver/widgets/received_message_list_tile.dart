@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import '../../common/commons.dart';
 
@@ -42,11 +43,11 @@ class ReceivedMessageListTile extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 4),
-        const Padding(
-          padding: EdgeInsets.only(left: 8),
+        Padding(
+          padding: const EdgeInsets.only(left: 8),
           child: Text(
-            '2023.09.06 10:29',
-            style: TextStyle(color: Colors.grey),
+            DateFormat('yyyy.MM.dd hh:mm').format(DateTime.now()),
+            style: const TextStyle(color: Colors.grey),
           ),
         ),
       ],
