@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_childrens_voice_app/caregiver/caregiver.dart';
-import 'package:my_childrens_voice_app/caregiver/screens/inpatient_managing_screen.dart';
 import 'package:my_childrens_voice_app/common/commons.dart';
-
-import '../cubits/cubits.dart';
-import '../repository/repository.dart';
 
 class ImportantInpatientListView extends StatelessWidget {
   const ImportantInpatientListView({Key? key}) : super(key: key);
@@ -39,20 +35,9 @@ class _Content extends StatelessWidget {
                   return ConstrainedBox(
                     constraints: const BoxConstraints(minHeight: 200),
                     child: _ListView(
-                      // inpatients: inpatients
-                      //     .where((inpatient) => inpatient.important)
-                      //     .toList()
-                      inpatients: [
-                        ...inpatients
-                            .where((inpatient) => inpatient.important)
-                            .toList(),
-                        ...inpatients
-                            .where((inpatient) => inpatient.important)
-                            .toList(),
-                        ...inpatients
-                            .where((inpatient) => inpatient.important)
-                            .toList(),
-                      ],
+                      inpatients: inpatients
+                          .where((inpatient) => inpatient.important)
+                          .toList(),
                     ),
                   );
                 },
@@ -82,7 +67,7 @@ class _Header extends StatelessWidget {
           children: [
             Text('환자 관리', style: TextStyles.h1),
             const Spacer(),
-            Icon(Icons.keyboard_arrow_right_outlined),
+            const Icon(Icons.keyboard_arrow_right_outlined),
           ],
         ),
       ),
