@@ -1,6 +1,8 @@
-import 'package:dio/dio.dart';
+import 'dart:developer';
+
 import 'package:my_childrens_voice_app/api/api.dart';
 import 'package:my_childrens_voice_app/home/models/models.dart';
+import 'package:path_provider/path_provider.dart';
 
 import '../../common/commons.dart';
 
@@ -20,5 +22,35 @@ class HomeRepository {
 
       return NursingHomeData(name, address);
     }).toList();
+  }
+
+  Future<bool> isVoiceTrainingFileExists(int fileNumber) async {
+    final cacheDir = await getApplicationCacheDirectory();
+
+    log('the file name is ${cacheDir.uri}voice_training_$fileNumber');
+
+    final target = cacheDir.listSync().where((file) {
+      return file.uri.toString().split('voice_training_').lastOrNull ==
+          fileNumber.toString();
+    }).lastOrNull;
+
+    return target != null;
+  }
+
+  Future<bool> deleteVoiceTrainingFile(int fileNumber) async {
+    final cacheDir = await getApplicationCacheDirectory();
+
+    final target = cacheDir.listSync().where((file) {
+      return file.uri.toString().split('voice_training_').lastOrNull ==
+          fileNumber.toString();
+    }).lastOrNull;
+
+    try {
+      await target?.delete();
+    } on Exception catch (error) {
+      log('file delete error: $error');
+    }
+
+    return await isVoiceTrainingFileExists(fileNumber);
   }
 }
