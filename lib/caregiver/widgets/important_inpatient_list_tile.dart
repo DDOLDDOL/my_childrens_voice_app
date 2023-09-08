@@ -26,7 +26,7 @@ class ImportantInpatientListTile extends StatelessWidget {
                 style: TextStyles.title.copyWith(fontSize: 15),
               ),
               Text(
-                '${inpatient.gender == "Woman" ? "여성" : "남성"}, 만 ${inpatient.age}세',
+                '${inpatient.gender}, 만 ${inpatient.age}세',
                 style: TextStyles.subtitle,
               ),
             ],
