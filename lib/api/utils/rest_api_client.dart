@@ -4,21 +4,19 @@ import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../common/hives/token_hive.dart';
+import '../../common/hives/hives.dart';
 import '../models/models.dart';
 import 'classes.dart';
 import 'constants.dart';
 
 part 'request_type.dart';
-
 part 'response_extension.dart';
-
 part 'rest_api_client.freezed.dart';
 
 class RestApiClient {
-  RestApiClient(this._apiUrl, this._tokenHive);
+  RestApiClient(this._tokenHive);
 
-  final String _apiUrl;
+  final String _apiUrl = apiUrl;
   final TokenHive _tokenHive;
   final _dio = Dio();
 
