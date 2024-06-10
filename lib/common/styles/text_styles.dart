@@ -2,30 +2,30 @@ import 'package:flutter/material.dart';
 
 class TextStyles {
   static TextStyle get appBarHeadlineSmall => const TextStyle(
-    color: Colors.black,
-    fontSize: 24,
-    fontWeight: FontWeight.w400,
-    fontFamily: "Roboto",
-  );
+        color: Colors.black,
+        fontSize: 24,
+        fontWeight: FontWeight.w400,
+        fontFamily: "Roboto",
+      );
 
   static TextStyle get appBarTitleLarge => const TextStyle(
-    color: Colors.black,
-    fontSize: 20,
-    fontWeight: FontWeight.w400,
-    fontFamily: "Roboto",
-  );
+        color: Colors.black,
+        fontSize: 20,
+        fontWeight: FontWeight.w400,
+        fontFamily: "Roboto",
+      );
 
   static TextStyle get h1 => const TextStyle(
-    color: Colors.black,
-    fontWeight: FontWeight.w800,
-    fontSize: 20,
-  );
+        color: Colors.black,
+        fontWeight: FontWeight.w800,
+        fontSize: 20,
+      );
 
   static TextStyle get title => const TextStyle(
-    color: Colors.black,
-    fontWeight: FontWeight.bold,
-    fontSize: 17,
-  );
+        color: Colors.black,
+        fontWeight: FontWeight.bold,
+        fontSize: 17,
+      );
 
   static TextStyle get subtitle => TextStyle(
         fontSize: 13,

@@ -8,12 +8,14 @@ class ErrorView extends StatelessWidget {
     required this.reason,
     this.icon,
     this.onRefresh,
+    this.refreshButtonText = '다시 시도',
   }) : super(key: key);
 
   final String message;
   final String reason;
   final Widget? icon;
   final void Function()? onRefresh;
+  final String refreshButtonText;
 
   @override
   Widget build(BuildContext context) {
@@ -25,11 +27,23 @@ class ErrorView extends StatelessWidget {
         children: [
           if (icon != null) icon!,
           const SizedBox(height: 20),
-          Text(message, style: TextStyles.title.copyWith(fontSize: 20)),
+          Text(
+            message,
+            style: TextStyles.title.copyWith(fontSize: 20),
+            textAlign: TextAlign.center,
+          ),
           const SizedBox(height: 8),
-          Text(reason, style: TextStyles.subtitle.copyWith(fontSize: 14)),
+          Text(
+            reason,
+            style: TextStyles.subtitle.copyWith(fontSize: 14),
+            textAlign: TextAlign.center,
+          ),
           const SizedBox(height: 28),
-          if (onRefresh != null) _RefreshButton(onPressed: onRefresh!),
+          if (onRefresh != null)
+            _RefreshButton(
+              onPressed: onRefresh!,
+              buttonText: refreshButtonText,
+            ),
         ],
       ),
     );
@@ -40,9 +54,11 @@ class _RefreshButton extends StatelessWidget {
   const _RefreshButton({
     Key? key,
     required this.onPressed,
+    required this.buttonText,
   }) : super(key: key);
 
   final void Function() onPressed;
+  final String buttonText;
 
   @override
   Widget build(BuildContext context) {
@@ -51,15 +67,15 @@ class _RefreshButton extends StatelessWidget {
         padding: const EdgeInsets.all(12),
         foregroundColor: Colors.white,
         backgroundColor: Colors.blue.shade400,
-        elevation: 0,
+        elevation: 2,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
         ),
       ),
       onPressed: onPressed,
-      child: const Text(
-        '다시 시도',
-        style: TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
+      child: Text(
+        buttonText,
+        style: const TextStyle(fontSize: 15, fontWeight: FontWeight.w500),
       ),
     );
   }
